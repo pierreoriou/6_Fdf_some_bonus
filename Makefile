@@ -4,7 +4,9 @@ SRCS =	main.c \
 		check_file_errors.c \
 		parse_file.c \
 		init_grid.c \
+		open_close_window.c \
 		utils/free_close_exit.c \
+		utils/clean_and_exit.c \
 		utils/get_tab_len.c \
 		print/print_grid.c \
 
@@ -33,7 +35,7 @@ ${OBJS_DIR}/%.o:%.c ${INCLUDES}
 all: ${NAME}
 
 ${NAME}: ${OBJS} ${LIBFT_PATH}/${LIBFT_NAME} ${MINILIBX_PATH}/${MINILIBX_NAME}
-	${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L${LIBFT_PATH} -lft -L${MINILIBX_PATH} -lmlx -lm
+	${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L${LIBFT_PATH} -lft -L${MINILIBX_PATH} -lmlx -lXext -lX11 -lm
 
 ${LIBFT_PATH}/${LIBFT_NAME}:
 	make -C ${LIBFT_PATH}
