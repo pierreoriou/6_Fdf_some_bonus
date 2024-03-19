@@ -1,9 +1,10 @@
 NAME = fdf
 
 SRCS =	main.c \
-		check_file_errors.c \
-		parse_file.c \
-		init_grid.c \
+		parse_grid.c \
+		check_file.c \
+		init/init_map.c \
+		init/init_grid.c \
 		open_close_window.c \
 		utils/free_close_exit.c \
 		utils/clean_and_exit.c \

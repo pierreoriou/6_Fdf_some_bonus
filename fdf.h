@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:22:00 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/07 13:05:21 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/19 16:59:36 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,28 @@
 typedef struct s_grid
 {
 	char	*name;
+	int		fd;
 	int		grid_len;
 	int		grid_width;
 	int		max_altitude;
 	int		max_depth;
 }			t_grid;
 
+typedef struct s_map
+{
+	t_grid	grid;
+}			t_map;
+
 int		main(int argc, char *argv[]);
-void	check_file_errors(char *arg);
-void	parse_file(char *filename);
-void	init_grid(t_grid *grid, char *filename);
+void	parse_grid(char *arg, t_map *map);
+char	*check_file_name(char *filename, t_map *map);
 void	open_window(t_xvar **connect, char *filename);
+// INIT
+t_map	*init_map(t_map **map);
+t_grid	init_grid(char *filename, int fd);
 // UTILS
-void	free_close_exit(char *str, int fd, char *err_msg);
+void	free_close_exit(t_map *map, char *str, char *err_msg);
+void	free_close(t_xvar *connect);
 void	clean_and_exit(t_xvar **connect);
 int		get_tab_len(char **tab);
 // PRINT

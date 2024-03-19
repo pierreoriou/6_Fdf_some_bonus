@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:35:41 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/07 13:37:21 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/19 17:04:53 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,4 @@ void	open_window(t_xvar **connect, char *filename)
 	mlx_key_hook((*connect)->win_list, &handle_esc_press, *connect);
 	// ft_printf(1, "hey\n");
 	mlx_loop(*connect);
-	mlx_destroy_display(*connect);
-	free(*connect);
 }

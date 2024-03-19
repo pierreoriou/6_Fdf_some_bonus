@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_grid.c                                       :+:      :+:    :+:   */
+/*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 18:30:54 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/19 14:02:07 by poriou           ###   ########.fr       */
+/*   Created: 2024/03/19 12:53:59 by poriou            #+#    #+#             */
+/*   Updated: 2024/03/19 16:56:54 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-void	print_grid(t_grid *grid)
-{
-	if (grid == NULL)
-		return ;
-	ft_printf(1, "grid->name : %s\n", grid->name);
-	ft_printf(1, "grid->fd : %d\n", grid->fd);
-	ft_printf(1, "grid->grid_len : %d\n", grid->grid_len);
-	ft_printf(1, "grid->grid_width : %d\n", grid->grid_width);
-	ft_printf(1, "grid->max_altitude : %d\n", grid->max_altitude);
-	ft_printf(1, "grid->max_depth : %d\n", grid->max_depth);
-}
+// t_map	*init_map(t_map *map)
+// {
+// 	map->grid = NULL;
+// 	printf("in init map, map->grid = %p, map = %p\n", map->grid, map);
+// 	return (map);
+// }
