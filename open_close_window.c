@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:35:41 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/19 17:04:53 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/20 18:49:04 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,19 @@ int	handle_esc_press(int keysym, t_xvar *connect)
 	return (keysym);
 }
 
-void	open_window(t_xvar **connect, char *filename)
+void	open_window(t_xvar **connect, char *file)
 {
-	int		window_width;
-	int		window_height;
+	int		win_wdth;
+	int		win_hgt;
 
-	window_width = 960;
-	window_height = 540;
+	win_wdth = 960;
+	win_hgt = 540;
 	*connect = mlx_init();
 	if (*connect == 0)
 		clean_and_exit(connect);
-	(*connect)->win_list = mlx_new_window(*connect, window_width, window_height, filename);
+	(*connect)->win_list = mlx_new_window(*connect, win_wdth, win_hgt, file);
 	if ((*connect)->win_list == 0)
 		clean_and_exit(connect);
 	mlx_key_hook((*connect)->win_list, &handle_esc_press, *connect);
-	// ft_printf(1, "hey\n");
 	mlx_loop(*connect);
 }

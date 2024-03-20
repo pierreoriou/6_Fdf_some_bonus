@@ -5,16 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/19 12:53:59 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/19 16:56:54 by poriou           ###   ########.fr       */
+/*   Created: 2024/03/20 15:42:59 by poriou            #+#    #+#             */
+/*   Updated: 2024/03/20 15:44:53 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-// t_map	*init_map(t_map *map)
-// {
-// 	map->grid = NULL;
-// 	printf("in init map, map->grid = %p, map = %p\n", map->grid, map);
-// 	return (map);
-// }
+void	init_map(t_map *map)
+{
+	map->coord = NULL;
+	map->plane = NULL;
+}

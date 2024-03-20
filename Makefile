@@ -2,14 +2,19 @@ NAME = fdf
 
 SRCS =	main.c \
 		parse_grid.c \
+		create_plane.c \
 		check_file.c \
 		init/init_map.c \
+		init/init_coord.c \
 		init/init_grid.c \
+		init/init_plane_data.c \
 		open_close_window.c \
 		utils/free_close_exit.c \
 		utils/clean_and_exit.c \
 		utils/get_tab_len.c \
 		print/print_grid.c \
+		print/print_coords.c \
+		print/print_plane.c \
 
 OBJS = ${addprefix ${OBJS_DIR}/,${SRCS:.c=.o}}
 
@@ -23,7 +28,7 @@ MINILIBX_PATH = ./Minilibx
 
 MINILIBX_NAME = libmlx.a
 
-CC = gcc
+CC = gcc -g3
 
 CFLAGS = -Wall -Wextra -Werror
 
