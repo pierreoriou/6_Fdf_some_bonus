@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:03:30 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/20 12:13:15 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/22 15:48:48 by peoriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 long	ft_atol(const char *nptr);
+long	ft_atol_base(char *nb, char *base);
 int		ft_atoi(const char *nptr);
 int		ft_atoi_base(char *nb, char *base);
 int		ft_check_base(char *base);

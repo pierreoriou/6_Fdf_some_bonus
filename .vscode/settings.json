@@ -3,6 +3,8 @@
 		"fdf.h": "c",
 		"typeinfo": "c",
 		"mlx.h": "c",
-		"xlib.h": "c"
-	}
+		"xlib.h": "c",
+		"ipc.h": "c"
+	},
+	"C_Cpp.errorSquiggles": "enabled"
 }

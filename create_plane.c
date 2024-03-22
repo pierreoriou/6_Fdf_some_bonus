@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   create_plane.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 16:07:32 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/20 18:43:35 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/22 13:47:52 by peoriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include <math.h>
 
 int	upd_plane_width(t_map *map)
 {
@@ -85,6 +86,7 @@ int	get_plane_height(t_map *map)
 void	create_plane(t_map *map)
 {
 	map->plane = init_plane(map);
+	map->plane->vect_x = init_vect_x(map);
 	init_scales_to_10(map->plane);
 	init_rotations_to_30(map->plane);
 	map->plane->width = get_plane_width(map);

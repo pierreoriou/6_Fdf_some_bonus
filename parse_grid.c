@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_grid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 10:23:19 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/20 17:04:24 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/22 16:38:49 by peoriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@ static void	check_line_content(char **tab, char *str, t_map *map)
 		}
 		val[0] = i;
 		val[2] = ft_atoi(tab[i]);
-		ft_printf(1, "%33?\n", "Here");
-		init_coord(map, &(map->coord), val);
+		init_coord(map, &(map->coord), val, tab[i]);
 		i++;
 	}
 	y++;
@@ -74,7 +73,7 @@ static void	check_file_content(t_map *map)
 		if (!str)
 			break ;
 		tab = ft_split(str, " \n");
-		if (!get_tab_len(tab, map))
+		if (!get_grid_len(tab, map))
 		{
 			ft_free_tab(tab);
 			free_close_exit(map, str, "file: unequal nb of data / line.\n");
@@ -95,16 +94,16 @@ void	parse_grid(char *filename, t_map *map)
 	new_name = check_file_name(filename, map);
 	fd = open(new_name, __O_DIRECTORY);
 	if (fd != -1)
-		free_close_exit(map, new_name, "open: directory and not a file.\n");
+		free_close_exit(map, new_name, "open: directory when file expected.\n");
 	fd = open(new_name, O_RDONLY);
 	if (fd == -1)
-		free_close_exit(map, new_name, "open: no such file.\n");
+		free_close_exit(map, new_name, "open: file not found.\n");
 	free (new_name);
 	map->grid = init_grid(filename, fd);
 	ft_printf(1, "%30? map->coord = %p\n", "In parse_coord", map->coord);
 	check_file_content(map);
 	ft_printf(1, "%30?\n", "File content checked...");
-	print_coords(map->coord, "at the end of parse grid.");
-	print_grid(&(map->grid), "at the end of parse grid.");
+	print_coords(map->coord, "At the end of parse grid :");
+	print_grid(&(map->grid), "At the end of parse grid :");
 	close (fd);
 }

@@ -3,6 +3,7 @@ NAME = libft.a
 SRC = ft_atoi.c \
       ft_atoi_base.c \
       ft_atol.c \
+      ft_atol_base.c \
       ft_bzero.c \
       ft_calloc.c \
       ft_check_base.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:31:17 by poriou            #+#    #+#             */
-/*   Updated: 2024/01/20 11:15:12 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/22 14:54:18 by peoriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_atoi_base(char *nb, char *base)
 	result = 0;
 	sign = 1;
 	i = 0;
-	while (nb[i] == 32 || (nb[i] >= 9 && nb[i] <= 13))
+	while (ft_isspace(nb[i]))
 		i++;
 	if (nb[i] == '+' || nb[i] == '-')
 	{

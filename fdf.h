@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:22:00 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/20 18:42:03 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/22 16:15:38 by peoriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define FDF_H
 
 # include "Libft/libft.h"
+# include <math.h>
 # include "Minilibx/mlx_int.h"
 # include "Minilibx/mlx.h"
-# include <math.h>
 # include <X11/Xlib.h>
 
 typedef struct s_grid
@@ -41,11 +41,28 @@ typedef struct s_coord
 	int				x;
 	int				y;
 	int				z;
+	int				color;
+	struct s_coord	*prev_x;
+	struct s_coord	*prev_y;
 	struct s_coord	*head;
 	struct s_coord	*prev;
 	struct s_coord	*next;
 	t_pixel			*pixel;
 }					t_coord;
+
+typedef struct s_vect
+{
+	int	x;
+	int	y;
+	int	z;
+	int	x_in_plane;
+	int	y_in_plane;
+	int	x_angle;
+	int	y_angle;
+	int	z_angle;
+	int	vertic_angle;
+	int	horiz_angle;
+}		t_vect;
 
 typedef struct s_plane
 {
@@ -58,8 +75,11 @@ typedef struct s_plane
 	int		margin_y;
 	int		rotate_z;
 	int		rotate_y;
+	t_vect	*vect_x;
+	t_vect	*vect_y;
+	t_vect	*vect_z;
 	t_pixel	*origin;
-}		t_plane;
+}			t_plane;
 
 typedef struct s_map
 {
@@ -77,19 +97,25 @@ char	*check_file_name(char *filename, t_map *map);
 // INIT
 void	init_map(t_map *map);
 t_grid	init_grid(char *filename, int fd);
-t_coord	*init_coord(t_map *map, t_coord **coord, int *val);
-// init plane
+t_coord	*init_coord(t_map *map, t_coord **coord, int *val, char *elem);
 t_plane	*init_plane(t_map *map);
+t_vect	*init_vect_x(t_map *map);
 void	init_scales_to_10(t_plane *plane);
 void	reduce_scales(t_plane **plane);
 void	init_rotations_to_30(t_plane *plane);
+
+// UPD
+void	upd_grid(t_map *map, int *val);
 
 // UTILS
 void	free_close_exit(t_map *map, char *str, char *err_msg);
 void	free_close(t_xvar *connect);
 void	free_coord(t_coord **coord);
+void	free_map(t_map *map);
 void	clean_and_exit(t_xvar **connect);
-int		get_tab_len(char **tab, t_map *map);
+int		get_grid_len(char **tab, t_map *map);
+int		get_color(char *elem);
+void	cleanup(t_map *map);
 
 // PRINT
 void	print_grid(t_grid *grid, char *msg);
