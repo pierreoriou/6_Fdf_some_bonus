@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:21:32 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/25 12:01:14 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/25 13:12:21 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int argc, char *argv[])
 	ft_printf(1, "%30?\n", "Plane created...");
 	create_image(&map);
 	ft_printf(1, "%30?\n", "Image created...");
+	print_grid(map.grid, "In main");
 	// put_plane_in_image(&map, map.image->img);
 	// draw_in_image(&map, map.image->img);
 	open_window(&map);

@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:22:00 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/25 11:29:45 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/25 13:36:30 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ int		get_grid_len(char **tab, t_map *map);
 int		get_color(char *elem);
 void	free_images(t_map *map, t_image **image);
 void	cleanup(t_map *map);
+int		find_optimal_vert_rotation(t_map *map);
 
 // PRINT
 void	print_grid(t_grid *grid, char *msg);

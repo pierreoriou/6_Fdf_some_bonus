@@ -16,9 +16,9 @@ SRCS =	main.c \
 		upd/upd_grid.c \
 		utils/free_close_exit.c \
 		utils/free_map.c \
-		utils/clean_and_exit.c \
 		utils/get_grid_len.c \
 		utils/get_color.c \
+		utils/find_optimal_vert_rotation.c \
 		print/print_grid.c \
 		print/print_coords.c \
 		print/print_plane.c \
