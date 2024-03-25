@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_coord.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 10:52:00 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/23 11:13:57 by peoriou          ###   ########.fr       */
+/*   Updated: 2024/03/25 16:13:23 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ t_coord	*init_coord(t_map *map, t_coord **coord, int *val, char *elem)
 	new->next = NULL;
 	coord_addback(coord, new);
 	upd_grid(map, val);
+	new->pixel = init_pixel(map);
 	return (new);
 }

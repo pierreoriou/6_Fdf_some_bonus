@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_plane.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 16:10:07 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/22 13:19:38 by peoriou          ###   ########.fr       */
+/*   Updated: 2024/03/25 16:44:55 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
-
-void	init_rotations_to_30(t_plane *plane)
-{
-	plane->rotate_y = 30;
-	plane->rotate_z = 30;
-}
 
 void	init_scales_to_10(t_plane *plane)
 {
@@ -44,5 +38,6 @@ t_plane	*init_plane(t_map *map)
 	plane->margin_x = 0;
 	plane->margin_y = 0;
 	plane->rotate_y = 0;
+	plane->rotate_z = 0;
 	return (plane);
 }

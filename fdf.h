@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:22:00 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/25 13:36:30 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/25 17:21:53 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,35 +58,25 @@ typedef struct s_coord
 
 typedef struct s_vect
 {
-	int	x;
-	int	y;
-	int	z;
+	int	scale;
 	int	x_in_plane;
 	int	y_in_plane;
-	int	x_angle;
-	int	y_angle;
-	int	z_angle;
-	int	vertic_angle;
-	int	horiz_angle;
 }		t_vect;
 
 typedef struct s_plane
 {
-	int		scale_x;
-	int		scale_y;
-	int		scale_z;
+	t_vect	*vect_x;
+	t_vect	*vect_y;
+	t_vect	*vect_z;
 	int 	initial_angle_x;
 	int 	initial_angle_y;
 	int 	initial_angle_z;
+	int		rotate_z;
+	int		rotate_y;
 	int		width;
 	int		height;
 	int		margin_x;
 	int		margin_y;
-	int		rotate_z;
-	int		rotate_y;
-	t_vect	*vect_x;
-	t_vect	*vect_y;
-	t_vect	*vect_z;
 	t_pixel	*origin;
 }			t_plane;
 
@@ -105,6 +95,8 @@ char	*check_file_name(char *filename, t_map *map);
 void	create_plane(t_map *map);
 void	put_plane_in_image(t_map *map, t_image *image);
 void	create_image(t_map *map);
+int		get_plane_margin_x(t_map *map);
+int		get_plane_margin_y(t_map *map);
 int		get_plane_width(t_map *map);
 int		get_plane_height(t_map *map);
 void	open_window(t_map *map);
@@ -113,6 +105,7 @@ void	open_window(t_map *map);
 void	init_map(t_map *map);
 t_grid	*init_grid(t_map *map, char *filename, int fd);
 t_coord	*init_coord(t_map *map, t_coord **coord, int *val, char *elem);
+t_pixel *init_pixel(t_map *map);
 t_plane	*init_plane(t_map *map);
 t_vect	*init_vect_x(t_map *map);
 t_vect	*init_vect_y(t_map *map);
@@ -123,6 +116,7 @@ void	init_rotations_to_30(t_plane *plane);
 
 // UPD
 void	upd_grid(t_map *map, int *val);
+void	upd_pixels_new_scale(t_map *map);
 
 // UTILS
 void	free_close_exit(t_map *map, char *str, char *err_msg);

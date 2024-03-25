@@ -4,16 +4,20 @@ SRCS =	main.c \
 		parse_grid.c \
 		create_plane.c \
 		create_image.c \
+		get_plane_margin_x.c \
+		get_plane_margin_y.c \
 		get_plane_width.c \
 		get_plane_height.c \
 		open_close_window.c \
 		check_file_name.c \
 		init/init_map.c \
 		init/init_coord.c \
+		init/init_pixel.c \
 		init/init_grid.c \
 		init/init_plane.c \
 		init/init_vect.c \
 		upd/upd_grid.c \
+		upd/upd_pixels.c \
 		utils/free_close_exit.c \
 		utils/free_map.c \
 		utils/get_grid_len.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_plane_height.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:10:27 by peoriou           #+#    #+#             */
-/*   Updated: 2024/03/23 11:17:06 by peoriou          ###   ########.fr       */
+/*   Updated: 2024/03/25 15:11:22 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	get_plane_height(t_map *map)
 	int	grid_width_height;
 	int	altitude;
 
+	if (map->grid->width == 1 && map->grid->len == 1)
+		return (100);
 	grid_len_height = map->plane->scale_x * map->grid->len;
 	grid_len_height *= sin(map->plane->rotate_y * M_PI / 180);
 	grid_width_height = map->plane->scale_y * map->grid->width;

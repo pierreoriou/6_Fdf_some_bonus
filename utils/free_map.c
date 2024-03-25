@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 13:52:03 by peoriou           #+#    #+#             */
-/*   Updated: 2024/03/25 10:34:53 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/25 15:59:13 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	free_coord(t_coord **coord)
 	while (cur)
 	{
 		next = cur->next;
+		free (cur->pixel);
 		free (cur);
 		cur = next;
 	}
