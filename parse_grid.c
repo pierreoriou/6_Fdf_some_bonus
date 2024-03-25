@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_grid.c                                       :+:      :+:    :+:   */
+/*   parse_grid->c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 10:23:19 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/22 16:38:49 by peoriou          ###   ########.fr       */
+/*   Updated: 2024/03/23 11:14:44 by peoriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,7 @@ static void	check_file_content(t_map *map)
 
 	while (1)
 	{
-		str = get_next_line(map->grid.fd);
-		ft_printf(1, "%30? str = %s\n", "In check file content", str);
+		str = get_next_line(map->grid->fd);
 		if (!str)
 			break ;
 		tab = ft_split(str, " \n");
@@ -79,7 +78,7 @@ static void	check_file_content(t_map *map)
 			free_close_exit(map, str, "file: unequal nb of data / line.\n");
 		}
 		check_line_content(tab, str, map);
-		map->grid.width++;
+		map->grid->width++;
 		free (str);
 		ft_free_tab(tab);
 	}
@@ -99,11 +98,10 @@ void	parse_grid(char *filename, t_map *map)
 	if (fd == -1)
 		free_close_exit(map, new_name, "open: file not found.\n");
 	free (new_name);
-	map->grid = init_grid(filename, fd);
-	ft_printf(1, "%30? map->coord = %p\n", "In parse_coord", map->coord);
+	map->grid = init_grid(map, filename, fd);
 	check_file_content(map);
 	ft_printf(1, "%30?\n", "File content checked...");
-	print_coords(map->coord, "At the end of parse grid :");
-	print_grid(&(map->grid), "At the end of parse grid :");
+	// print_coords(map->coord, "At the end of parse grid :");
+	// print_grid(&(map->grid), "At the end of parse grid :");
 	close (fd);
 }

@@ -3,8 +3,11 @@ NAME = fdf
 SRCS =	main.c \
 		parse_grid.c \
 		create_plane.c \
-		check_file_name.c \
+		create_image.c \
+		get_plane_width.c \
+		get_plane_height.c \
 		open_close_window.c \
+		check_file_name.c \
 		init/init_map.c \
 		init/init_coord.c \
 		init/init_grid.c \

@@ -6,7 +6,7 @@
 /*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 10:52:00 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/22 16:38:43 by peoriou          ###   ########.fr       */
+/*   Updated: 2024/03/23 11:13:57 by peoriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static void	coord_addback(t_coord **coord, t_coord *new)
 	if (!*coord)
 	{
 		*coord = new;
-		ft_printf(1, "%30?\n", "first coord");
 		(*coord)->head = new;
 		return ;
 	}
@@ -50,7 +49,7 @@ t_coord	*init_coord(t_map *map, t_coord **coord, int *val, char *elem)
 
 	new = (t_coord *)malloc(sizeof(t_coord));
 	if (!new)
-		free_close_exit(map, NULL, "Problem allocating memory.");
+		free_close_exit(map, NULL, "Problem allocating memory.\n");
 	new->x = val[0];
 	new->y = val[1];
 	new->z = val[2];

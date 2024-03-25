@@ -6,7 +6,7 @@
 /*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:22:00 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/22 16:15:38 by peoriou          ###   ########.fr       */
+/*   Updated: 2024/03/23 11:16:24 by peoriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include "Minilibx/mlx_int.h"
 # include "Minilibx/mlx.h"
 # include <X11/Xlib.h>
+
+typedef struct s_image
+{
+	t_img			*img;
+	struct s_image	*next;
+}					t_image;
 
 typedef struct s_grid
 {
@@ -69,6 +75,9 @@ typedef struct s_plane
 	int		scale_x;
 	int		scale_y;
 	int		scale_z;
+	int 	initial_angle_x;
+	int 	initial_angle_y;
+	int 	initial_angle_z;
 	int		width;
 	int		height;
 	int		margin_x;
@@ -83,23 +92,30 @@ typedef struct s_plane
 
 typedef struct s_map
 {
-	t_grid	grid;
+	t_xvar	*connect;
+	t_grid	*grid;
 	t_coord	*coord;
 	t_plane	*plane;
+	t_image	*image;
 }			t_map;
 
 int		main(int argc, char *argv[]);
 void	parse_grid(char *arg, t_map *map);
-void	create_plane(t_map *map);
-void	open_window(t_xvar **connect, char *filename);
-
 char	*check_file_name(char *filename, t_map *map);
+void	create_plane(t_map *map);
+void	create_image(t_map *map);
+int		get_plane_width(t_map *map);
+int		get_plane_height(t_map *map);
+void	open_window(t_map *map);
+
 // INIT
 void	init_map(t_map *map);
-t_grid	init_grid(char *filename, int fd);
+t_grid	*init_grid(t_map *map, char *filename, int fd);
 t_coord	*init_coord(t_map *map, t_coord **coord, int *val, char *elem);
 t_plane	*init_plane(t_map *map);
 t_vect	*init_vect_x(t_map *map);
+t_vect	*init_vect_y(t_map *map);
+t_vect	*init_vect_z(t_map *map);
 void	init_scales_to_10(t_plane *plane);
 void	reduce_scales(t_plane **plane);
 void	init_rotations_to_30(t_plane *plane);

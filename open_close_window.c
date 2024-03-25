@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   open_close_window.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:35:41 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/20 18:49:04 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/23 11:17:19 by peoriou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,26 @@ void	close_window(t_xvar **connect)
 
 int	handle_esc_press(int keysym, t_xvar *connect)
 {
-	if (keysym == XK_Escape)
-	{
-		ft_printf(1, "%d %32?\n", keysym, "is pressed, and window is closed!");
-		close_window(&connect);
-	}
 	ft_printf(1, "%d %33?\n", keysym, "is pressed!");
+	if (keysym == XK_Escape)
+		close_window(&connect);
 	return (keysym);
 }
 
-void	open_window(t_xvar **connect, char *file)
+void	open_window(t_map *map)
 {
-	int		win_wdth;
-	int		win_hgt;
+	int		wdth;
+	int		hght;
+	t_xvar	*co;
 
-	win_wdth = 960;
-	win_hgt = 540;
-	*connect = mlx_init();
-	if (*connect == 0)
-		clean_and_exit(connect);
-	(*connect)->win_list = mlx_new_window(*connect, win_wdth, win_hgt, file);
-	if ((*connect)->win_list == 0)
-		clean_and_exit(connect);
-	mlx_key_hook((*connect)->win_list, &handle_esc_press, *connect);
-	mlx_loop(*connect);
+	wdth = map->plane->width;
+	hght = map->plane->height;
+	co = map->connect;
+	co->win_list = mlx_new_window(co, wdth, hght, map->grid->name);
+	if (co->win_list == 0)
+		free_close_exit(map, NULL, "Problem initiationg mlx window.\n");
+	// mlx_put_image_to_window(co, co->win_list, image->img, 0, 0);
+	mlx_key_hook(co->win_list, &handle_esc_press, co);
+	mlx_hook(co->win_list, 17, 1L << 17, &mlx_loop_end, co);
+	mlx_loop(co);
 }
