@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 13:52:03 by peoriou           #+#    #+#             */
-/*   Updated: 2024/03/24 11:53:24 by peoriou          ###   ########.fr       */
+/*   Updated: 2024/03/25 10:34:53 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,8 @@ void	free_map(t_map *map)
 		free(map->grid);
 	if (map->coord)
 		free_coord(&(map->coord));
-	ft_printf(1, "%30?\n", "...map coordinates freed...");
+	ft_printf(1, "%30?\n", "CLEANUP : ...map coordinates freed...");
 	if (map->plane)
 		free_plane(map->plane);
-	ft_printf(1, "%30?\n", "...map plane freed...");
-	if (map->image)
-		free_images(map, &(map->image));
-	ft_printf(1, "%30?\n", "...map images freed...");
+	ft_printf(1, "%30?\n", "CLEANUP : ...map plane freed...");
 }

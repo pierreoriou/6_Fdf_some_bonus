@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:21:32 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/24 11:58:36 by peoriou          ###   ########.fr       */
+/*   Updated: 2024/03/25 12:01:14 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int	main(int argc, char *argv[])
 	ft_printf(1, "%30?\n", "Grid parsed and coordinates initiated...");
 	create_plane(&map);
 	ft_printf(1, "%30?\n", "Plane created...");
-	// create_image(&map);
-	// ft_printf(1, "%30?\n", "Image created...");
-	// mlx_put_image_to_window(map.connect, map.connect->win_list, map.image->img, 0, 0);
-	// ft_printf(1, "%30?\n", "Image put in window...");
-	// open_window(&map);
-	// ft_printf(1, "%30?\n", "Window opened...");
+	create_image(&map);
+	ft_printf(1, "%30?\n", "Image created...");
+	// put_plane_in_image(&map, map.image->img);
+	// draw_in_image(&map, map.image->img);
+	open_window(&map);
+	ft_printf(1, "%30?\n", "Window opened...");
 	cleanup(&map);
 	ft_printf(1, "%32?\n", "Everything cleaned up, it seems like everything went smoothly.");
 	return (0);

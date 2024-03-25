@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   open_close_window.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:35:41 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/23 11:17:19 by peoriou          ###   ########.fr       */
+/*   Updated: 2024/03/25 11:22:24 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	handle_esc_press(int keysym, t_xvar *connect)
 {
 	ft_printf(1, "%d %33?\n", keysym, "is pressed!");
 	if (keysym == XK_Escape)
-		close_window(&connect);
+		mlx_loop_end(connect);
 	return (keysym);
 }
 
@@ -46,6 +46,8 @@ void	open_window(t_map *map)
 	if (co->win_list == 0)
 		free_close_exit(map, NULL, "Problem initiationg mlx window.\n");
 	// mlx_put_image_to_window(co, co->win_list, image->img, 0, 0);
+	mlx_put_image_to_window(map->connect, map->connect->win_list, map->image->img, 0, 0);
+	ft_printf(1, "%30?\n", "Image put in window...");
 	mlx_key_hook(co->win_list, &handle_esc_press, co);
 	mlx_hook(co->win_list, 17, 1L << 17, &mlx_loop_end, co);
 	mlx_loop(co);

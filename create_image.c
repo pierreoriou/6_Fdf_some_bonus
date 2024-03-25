@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_image.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 10:48:52 by peoriou           #+#    #+#             */
-/*   Updated: 2024/03/23 10:57:46 by peoriou          ###   ########.fr       */
+/*   Updated: 2024/03/25 10:01:46 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ void	create_image(t_map *map)
 	new = (t_image *)malloc(sizeof(t_image));
 	if (!new)
 		free_close_exit(map, NULL, "Problem allocating memory.");
+	new->next = NULL;
+	ft_printf(1, "in create image, wdth = %d, hght = %d\n", wdth, hght);
+	ft_printf(1, "in create image, map->connect = %p\n", map->connect);
 	new->img = mlx_new_image(map->connect, wdth, hght);
 	if (!new->img)
 		free_close_exit(map, NULL, "Problem creating mlx img.");

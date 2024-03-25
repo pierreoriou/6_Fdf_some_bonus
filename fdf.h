@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:22:00 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/23 11:16:24 by peoriou          ###   ########.fr       */
+/*   Updated: 2024/03/25 11:29:45 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ int		main(int argc, char *argv[]);
 void	parse_grid(char *arg, t_map *map);
 char	*check_file_name(char *filename, t_map *map);
 void	create_plane(t_map *map);
+void	put_plane_in_image(t_map *map, t_image *image);
 void	create_image(t_map *map);
 int		get_plane_width(t_map *map);
 int		get_plane_height(t_map *map);
@@ -125,12 +126,12 @@ void	upd_grid(t_map *map, int *val);
 
 // UTILS
 void	free_close_exit(t_map *map, char *str, char *err_msg);
-void	free_close(t_xvar *connect);
 void	free_coord(t_coord **coord);
 void	free_map(t_map *map);
 void	clean_and_exit(t_xvar **connect);
 int		get_grid_len(char **tab, t_map *map);
 int		get_color(char *elem);
+void	free_images(t_map *map, t_image **image);
 void	cleanup(t_map *map);
 
 // PRINT
