@@ -82,6 +82,8 @@ static void	check_file_content(t_map *map)
 		free (str);
 		ft_free_tab(tab);
 	}
+	if (map->grid->width == 0)
+		free_close_exit(map, str, "file: empty.\n");
 	free (str);
 }
 

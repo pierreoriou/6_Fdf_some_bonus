@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 10:48:52 by peoriou           #+#    #+#             */
-/*   Updated: 2024/03/25 15:06:55 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/28 14:52:59 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	create_image(t_map *map)
 	int		wdth;
 	int		hght;
 
-	wdth = map->plane->width;
-	hght = map->plane->height;
+	wdth = map->plane->width + (map->plane->margin_x * 2);
+	hght = map->plane->height + (map->plane->margin_y * 2);
 	new = (t_image *)malloc(sizeof(t_image));
 	if (!new)
 		free_close_exit(map, NULL, "Problem allocating memory.");

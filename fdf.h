@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:22:00 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/25 17:21:53 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/28 17:26:42 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,6 @@ typedef struct s_plane
 	t_vect	*vect_x;
 	t_vect	*vect_y;
 	t_vect	*vect_z;
-	int 	initial_angle_x;
-	int 	initial_angle_y;
-	int 	initial_angle_z;
 	int		rotate_z;
 	int		rotate_y;
 	int		width;
@@ -93,12 +90,17 @@ int		main(int argc, char *argv[]);
 void	parse_grid(char *arg, t_map *map);
 char	*check_file_name(char *filename, t_map *map);
 void	create_plane(t_map *map);
-void	put_plane_in_image(t_map *map, t_image *image);
+void	draw_in_image(t_map *map, t_img *img);
 void	create_image(t_map *map);
 int		get_plane_margin_x(t_map *map);
 int		get_plane_margin_y(t_map *map);
 int		get_plane_width(t_map *map);
 int		get_plane_height(t_map *map);
+void	my_pixel_put(t_img *img, int x, int y, int color);
+void	draw_bresenham_up_up(t_img *img, t_pixel cur, t_pixel prev, int color);
+void	draw_bresenham_up_left(t_img *img, t_pixel cur, t_pixel prev, int color);
+void	draw_bresenham_down_down(t_img *img, t_pixel cur, t_pixel prev, int color);
+void	draw_bresenham_down_left(t_img *img, t_pixel cur, t_pixel prev, int color);
 void	open_window(t_map *map);
 
 // INIT
@@ -111,12 +113,15 @@ t_vect	*init_vect_x(t_map *map);
 t_vect	*init_vect_y(t_map *map);
 t_vect	*init_vect_z(t_map *map);
 void	init_scales_to_10(t_plane *plane);
-void	reduce_scales(t_plane **plane);
-void	init_rotations_to_30(t_plane *plane);
+void	reduce_scales(t_plane *plane);
+t_pixel	*init_plane_origin(t_map *map);
 
 // UPD
 void	upd_grid(t_map *map, int *val);
 void	upd_pixels_new_scale(t_map *map);
+int		upd_plane_width(t_map *map);
+void	upd_vectors(t_map *map);
+void	upd_coord(t_plane *plane, t_coord *coord);
 
 // UTILS
 void	free_close_exit(t_map *map, char *str, char *err_msg);
@@ -128,6 +133,7 @@ int		get_color(char *elem);
 void	free_images(t_map *map, t_image **image);
 void	cleanup(t_map *map);
 int		find_optimal_vert_rotation(t_map *map);
+int		find_horiz_rotation(t_map *map);
 
 // PRINT
 void	print_grid(t_grid *grid, char *msg);

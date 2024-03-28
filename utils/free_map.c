@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 13:52:03 by peoriou           #+#    #+#             */
-/*   Updated: 2024/03/25 15:59:13 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/28 14:59:29 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	free_plane(t_plane *plane)
 		free(plane->vect_y);
 	if (plane->vect_z)
 		free(plane->vect_z);
+	if (plane->origin)
+		free(plane->origin);
 	free (plane);
 }
 

@@ -10,19 +10,27 @@ SRCS =	main.c \
 		get_plane_height.c \
 		open_close_window.c \
 		check_file_name.c \
+		draw_bresenham_up.c \
+		draw_bresenham_down.c \
+		my_pixel_put.c \
+		draw_in_image.c \
 		init/init_map.c \
 		init/init_coord.c \
 		init/init_pixel.c \
 		init/init_grid.c \
 		init/init_plane.c \
 		init/init_vect.c \
+		init/init_plane_origin.c \
 		upd/upd_grid.c \
-		upd/upd_pixels.c \
+		upd/upd_vectors.c \
+		upd/upd_plane_width.c \
+		upd/upd_coord.c \
 		utils/free_close_exit.c \
 		utils/free_map.c \
 		utils/get_grid_len.c \
 		utils/get_color.c \
 		utils/find_optimal_vert_rotation.c \
+		utils/find_horiz_rotation.c \
 		print/print_grid.c \
 		print/print_coords.c \
 		print/print_plane.c \

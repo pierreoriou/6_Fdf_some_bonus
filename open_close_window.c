@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:35:41 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/25 11:22:24 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/28 14:59:01 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	open_window(t_map *map)
 	int		hght;
 	t_xvar	*co;
 
-	wdth = map->plane->width;
-	hght = map->plane->height;
+	wdth = map->image->img->width;
+	hght = map->image->img->height;
 	co = map->connect;
 	co->win_list = mlx_new_window(co, wdth, hght, map->grid->name);
 	if (co->win_list == 0)
