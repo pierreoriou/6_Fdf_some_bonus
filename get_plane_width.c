@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:07:31 by peoriou           #+#    #+#             */
-/*   Updated: 2024/03/28 11:28:18 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/29 16:04:09 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	get_plane_width(t_map *map)
 	while (res > 1920 && map->plane->vect_x->scale > 3)
 	{
 		reduce_scales(map->plane);
+		upd_vectors(map);
 		res = upd_plane_width(map);
 	}
 	if (res < 100)

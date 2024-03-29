@@ -6,16 +6,19 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 10:48:52 by peoriou           #+#    #+#             */
-/*   Updated: 2024/03/28 14:52:59 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/29 15:26:14 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void	add_image_to_front(t_image **image, t_image *new)
+static void	add_image_to_front(t_map *map, t_image *new)
 {
-	new->next = *image;
-	*image = new;
+	t_image *tmp;
+
+	tmp = map->image;
+	new->next = tmp;
+	map->image = new;
 }
 
 void	create_image(t_map *map)
@@ -30,10 +33,8 @@ void	create_image(t_map *map)
 	if (!new)
 		free_close_exit(map, NULL, "Problem allocating memory.");
 	new->next = NULL;
-	ft_printf(1, "in create image, wdth = %d, hght = %d\n", wdth, hght);
-	ft_printf(1, "in create image, map->connect = %p\n", map->connect);
 	new->img = mlx_new_image(map->connect, wdth, hght);
 	if (!new->img)
 		free_close_exit(map, NULL, "Problem creating mlx img.");
-	add_image_to_front(&(map->image), new);
+	add_image_to_front(map, new);
 }

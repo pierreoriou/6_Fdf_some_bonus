@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:57:38 by peoriou           #+#    #+#             */
-/*   Updated: 2024/03/22 15:59:17 by peoriou          ###   ########.fr       */
+/*   Updated: 2024/03/29 14:28:10 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static char	*standardize_color(char *color)
 	i = 0;
 	while (color[i])
 	{
-		ft_tolower(color[i]);
+		color[i] = ft_tolower(color[i]);
 		i++;
 	}
 	return (color);

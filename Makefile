@@ -14,6 +14,9 @@ SRCS =	main.c \
 		draw_bresenham_down.c \
 		my_pixel_put.c \
 		draw_in_image.c \
+		translations.c \
+		zooms.c \
+		rotations.c \
 		init/init_map.c \
 		init/init_coord.c \
 		init/init_pixel.c \
@@ -31,6 +34,7 @@ SRCS =	main.c \
 		utils/get_color.c \
 		utils/find_optimal_vert_rotation.c \
 		utils/find_horiz_rotation.c \
+		utils/reduce_scales.c \
 		print/print_grid.c \
 		print/print_coords.c \
 		print/print_plane.c \

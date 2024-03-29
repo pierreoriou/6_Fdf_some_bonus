@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_pixel_put.c                                     :+:      :+:    :+:   */
+/*   reduce_scales.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/25 11:24:57 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/29 15:34:54 by poriou           ###   ########.fr       */
+/*   Created: 2024/03/29 11:46:11 by poriou            #+#    #+#             */
+/*   Updated: 2024/03/29 11:46:19 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../fdf.h"
 
-void	my_pixel_put(t_img *img, int x, int y, int color)
+void	reduce_scales(t_plane *plane)
 {
-	char	*dst;
-	int		offset;
-	int		win_height;
-	int		win_width;
-
-	win_height = img->height;
-	win_width = img->width;
-	if (x < 0 || y < 0 || x >= win_width || y >= win_height)
+	if (plane->vect_x->scale == 3|| plane->vect_y->scale == 3|| plane->vect_z->scale == 3)
 		return ;
-	offset = (x * (img->bpp / 8)) + y * img->size_line;
-	dst = img->data + offset;
-	*(int *)dst = color;
+	plane->vect_x->scale--;
+	plane->vect_y->scale--;
+	plane->vect_z->scale--;
 }

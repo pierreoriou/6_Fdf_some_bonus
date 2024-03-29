@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 10:40:38 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/28 11:28:28 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/29 16:29:13 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ int	upd_plane_width(t_map *map)
 	int	grid_len_width;
 	int	grid_width_width;
 
-	grid_len_width = map->plane->vect_x->scale * (map->grid->len - 1);
-	grid_len_width *= sin(map->plane->rotate_z * M_PI / 180);
-	grid_width_width = map->plane->vect_y->scale * (map->grid->width - 1);
-	grid_width_width *= cos(map->plane->rotate_z * M_PI / 180);
+	grid_len_width = map->plane->vect_x->x_in_plane * (map->grid->len - 1);
+	grid_width_width = map->plane->vect_y->x_in_plane * (map->grid->width - 1);
 	res = grid_len_width + grid_width_width;
 	if (res < 100)
 		return (100);

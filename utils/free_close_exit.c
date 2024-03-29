@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 11:54:23 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/25 10:34:22 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/29 17:10:54 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,11 @@ void	free_close_exit(t_map *map, char *str, char *err_msg)
 {
 	free (str);
 	ft_printf(1, "%31?\n", "EXITING : str freed...");
-	if (map->grid)
-	{
-		close (map->grid->fd);
-		ft_printf(1, "%31?\n", "EXITING : fd closed...");
-	}
 	free_map(map);
 	ft_printf(1, "%31?\n", "EXITING : map freed...");
 	ft_printf(2, "%31?", err_msg);
+	mlx_destroy_display(map->connect);
+	free (map->connect);
 	exit (EXIT_FAILURE);
 }
 

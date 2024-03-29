@@ -28,7 +28,7 @@ static int	check_content_format(char *content)
 		i += 3;
 		if (ft_strlen(content + i) < 2 || ft_strlen(content + i) > 6)
 			return (0);
-		while (ft_ischarset(content[i], "123456789abcdefABCDEF"))
+		while (ft_ischarset(content[i], "0123456789abcdefABCDEF"))
 			i++;
 		if (i != (int)ft_strlen(content))
 			return (0);
@@ -103,7 +103,5 @@ void	parse_grid(char *filename, t_map *map)
 	map->grid = init_grid(map, filename, fd);
 	check_file_content(map);
 	ft_printf(1, "%30?\n", "File content checked...");
-	// print_coords(map->coord, "At the end of parse grid :");
-	// print_grid(&(map->grid), "At the end of parse grid :");
 	close (fd);
 }

@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:26:39 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/28 17:25:38 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/29 11:14:31 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	draw_bresenham_up_up(t_img *img, t_pixel cur, t_pixel prev, int color)
 	int	dy;
 	int	p;
 
-	dx = llabs(cur.x - prev.x);
-	dy = llabs(cur.y - prev.y);
+	dx = (int)fabs((double)(cur.x - prev.x));
+	dy = (int)fabs((double)(cur.y - prev.y));
 	p = (2 * dx) - dy;
 	while (prev.y > cur.y)
 	{
@@ -41,8 +41,8 @@ void	draw_bresenham_up_left(t_img *img, t_pixel cur, t_pixel prev, int color)
 	int	dy;
 	int	p;
 
-	dx = llabs(cur.x - prev.x);
-	dy = llabs(cur.y - prev.y);
+	dx = (int)fabs((double)(cur.x - prev.x));
+	dy = (int)fabs((double)(cur.y - prev.y));
 	p = (2 * dy) - dx;
 	while (prev.x < cur.x)
 	{

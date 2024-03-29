@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:22:00 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/28 17:26:42 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/29 15:43:17 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int		main(int argc, char *argv[]);
 void	parse_grid(char *arg, t_map *map);
 char	*check_file_name(char *filename, t_map *map);
 void	create_plane(t_map *map);
-void	draw_in_image(t_map *map, t_img *img);
+void	draw_in_image(t_map *map, t_coord *coord, t_img *img);
 void	create_image(t_map *map);
 int		get_plane_margin_x(t_map *map);
 int		get_plane_margin_y(t_map *map);
@@ -102,6 +102,14 @@ void	draw_bresenham_up_left(t_img *img, t_pixel cur, t_pixel prev, int color);
 void	draw_bresenham_down_down(t_img *img, t_pixel cur, t_pixel prev, int color);
 void	draw_bresenham_down_left(t_img *img, t_pixel cur, t_pixel prev, int color);
 void	open_window(t_map *map);
+void	translate_right(t_map *map);
+void	translate_left(t_map *map);
+void	translate_up(t_map *map);
+void	translate_down(t_map *map);
+void	zoom_in(t_map *map);
+void	zoom_out(t_map *map);
+void	rotate_up(t_map *map);
+void	rotate_down(t_map *map);
 
 // INIT
 void	init_map(t_map *map);
@@ -113,7 +121,6 @@ t_vect	*init_vect_x(t_map *map);
 t_vect	*init_vect_y(t_map *map);
 t_vect	*init_vect_z(t_map *map);
 void	init_scales_to_10(t_plane *plane);
-void	reduce_scales(t_plane *plane);
 t_pixel	*init_plane_origin(t_map *map);
 
 // UPD
@@ -130,6 +137,7 @@ void	free_map(t_map *map);
 void	clean_and_exit(t_xvar **connect);
 int		get_grid_len(char **tab, t_map *map);
 int		get_color(char *elem);
+void	reduce_scales(t_plane *plane);
 void	free_images(t_map *map, t_image **image);
 void	cleanup(t_map *map);
 int		find_optimal_vert_rotation(t_map *map);

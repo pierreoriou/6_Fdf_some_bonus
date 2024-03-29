@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:21:32 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/28 12:25:40 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/29 17:10:54 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char *argv[])
 		exit (EXIT_FAILURE);
 	}
 	init_map(&map);
-	ft_printf(1, "%30?\n", "Map initiated...");
+	ft_printf(1, "%30? %s ...\n", "Map initiated :", argv[1]);
 	parse_grid(argv[1], &map);
 	ft_printf(1, "%30?\n", "Grid parsed and coordinates initiated...");
 	create_plane(&map);
@@ -30,9 +30,10 @@ int	main(int argc, char *argv[])
 	// print_coords(map.coord, "In main after parse grid");
 	create_image(&map);
 	ft_printf(1, "%30?\n", "Image created...");
-	draw_in_image(&map, map.image->img);
+	draw_in_image(&map, map.coord, map.image->img);
 	ft_printf(1, "%30?\n", "Image drawn...");
 	// print_grid(map.grid, "In main");
+	// print_plane(map.plane, "in main after draw in image");
 	open_window(&map);
 	ft_printf(1, "%30?\n", "Window opened...");
 	cleanup(&map);
