@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 11:11:18 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/04 10:37:01 by poriou           ###   ########.fr       */
+/*   Created: 2024/03/31 14:44:27 by poriou            #+#    #+#             */
+/*   Updated: 2024/03/31 14:53:33 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_check_base(char *base)
 		{
 			if (base[i] == base[j] || base[i] == '+' || base[i] == '-')
 			{
-				ft_printf(2, "ft_check_base: problem with base\n");
+				ft_putendl_fd("Problem with base", 2);
 				return (0);
 			}
 			j++;

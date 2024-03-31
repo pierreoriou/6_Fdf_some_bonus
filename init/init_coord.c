@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 10:52:00 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/25 16:13:23 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/31 14:11:19 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ static void	coord_addback(t_coord **coord, t_coord *new)
 	(*coord)->head = new;
 }
 
-// ft_printf(1, "%30? static new = %p\n", "In init coord", new);
 t_coord	*init_coord(t_map *map, t_coord **coord, int *val, char *elem)
 {
 	t_coord	*new;

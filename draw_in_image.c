@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 11:23:56 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/29 15:45:10 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/31 15:35:35 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ static void	draw_coord_prev_y(t_pixel *cur, t_pixel *prev, t_img *img, int col)
 
 void	draw_in_image(t_map *map, t_coord *coord, t_img *img)
 {
-	t_pixel *prev_x;
-	t_pixel *prev_y;
-	t_pixel *cur;
+	t_pixel	*prev_x;
+	t_pixel	*prev_y;
+	t_pixel	*cur;
 	int		color;
 
 	upd_coord(map->plane, coord);

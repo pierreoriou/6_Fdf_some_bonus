@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 15:42:59 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/25 10:02:03 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/31 15:11:34 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ void	init_map(t_map *map)
 	map->image = NULL;
 	map->connect = mlx_init();
 	if (map->connect == NULL)
-		free_close_exit(map, NULL, "Problem initiationg mlx connect.\n");
+		free_close_exit_before_init(map, "Problem initiationg mlx connect.\n");
 }

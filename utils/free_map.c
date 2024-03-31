@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 13:52:03 by peoriou           #+#    #+#             */
-/*   Updated: 2024/03/29 16:36:06 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/31 14:16:24 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void	free_map(t_map *map)
 		free(map->grid);
 	if (map->coord)
 		free_coord(&(map->coord));
-	ft_printf(1, "%30?\n", "CLEANUP : ...map coordinates freed...");
+	printf("CLEANUP : ...map coordinates freed...\n");
 	if (map->plane)
 		free_plane(map->plane);
-	ft_printf(1, "%30?\n", "CLEANUP : ...map plane freed...");
+	printf("CLEANUP : ...map plane freed...\n");
 }

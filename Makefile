@@ -51,7 +51,7 @@ MINILIBX_PATH = ./Minilibx
 
 MINILIBX_NAME = libmlx.a
 
-CC = gcc -g3
+CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 

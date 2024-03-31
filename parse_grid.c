@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_grid->c                                       :+:      :+:    :+:   */
+/*   parse_grid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/23 10:23:19 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/23 11:14:44 by peoriou          ###   ########.fr       */
+/*   Created: 2024/03/31 15:36:01 by poriou            #+#    #+#             */
+/*   Updated: 2024/03/31 15:36:03 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,6 @@ void	parse_grid(char *filename, t_map *map)
 	free (new_name);
 	map->grid = init_grid(map, filename, fd);
 	check_file_content(map);
-	ft_printf(1, "%30?\n", "File content checked...");
+	printf("File content checked...\n");
 	close (fd);
 }

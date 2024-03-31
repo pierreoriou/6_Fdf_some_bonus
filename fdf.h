@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:22:00 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/29 15:43:17 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/31 15:30:59 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,7 @@ void	upd_coord(t_plane *plane, t_coord *coord);
 
 // UTILS
 void	free_close_exit(t_map *map, char *str, char *err_msg);
+void	free_close_exit_before_init(t_map *map, char *err_msg);
 void	free_coord(t_coord **coord);
 void	free_map(t_map *map);
 void	clean_and_exit(t_xvar **connect);

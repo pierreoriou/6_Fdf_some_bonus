@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:21:32 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/29 17:10:54 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/31 14:10:20 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,25 @@ int	main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		ft_printf(2, "Usage: %s <argument1>\n", argv[0]);
+		ft_putendl_fd("Usage: ./fdf <argument1>", 2);
 		exit (EXIT_FAILURE);
 	}
 	init_map(&map);
-	ft_printf(1, "%30? %s ...\n", "Map initiated :", argv[1]);
+	printf("Map initiated : %s ...\n", argv[1]);
 	parse_grid(argv[1], &map);
-	ft_printf(1, "%30?\n", "Grid parsed and coordinates initiated...");
+	printf("Grid parsed and coordinates initiated...\n");
 	create_plane(&map);
-	ft_printf(1, "%30?\n", "Plane created...");
+	printf("Plane created...\n");
 	// print_coords(map.coord, "In main after parse grid");
 	create_image(&map);
-	ft_printf(1, "%30?\n", "Image created...");
+	printf("Image created...\n");
 	draw_in_image(&map, map.coord, map.image->img);
-	ft_printf(1, "%30?\n", "Image drawn...");
+	printf("Image drawn...\n");
 	// print_grid(map.grid, "In main");
 	// print_plane(map.plane, "in main after draw in image");
 	open_window(&map);
-	ft_printf(1, "%30?\n", "Window opened...");
+	printf("Window opened...\n");
 	cleanup(&map);
-	ft_printf(1, "%32?\n", "Everything cleaned up, it seems like everything went smoothly.");
+	printf("Everything cleaned up, it seems like everything went smoothly.\n");
 	return (0);
 }

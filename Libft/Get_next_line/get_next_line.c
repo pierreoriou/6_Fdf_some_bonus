@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 10:07:14 by poriou            #+#    #+#             */
-/*   Updated: 2024/02/06 16:14:02 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/31 14:43:54 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ char	*parse_line(int fd, char *buf, char *saved)
 			break ;
 		buf[reading] = '\0';
 		if (!saved)
+		{
 			saved = gl_strdup("");
+			if (!saved)
+				return (NULL);
+		}
 		tmp = saved;
 		saved = gl_strjoin(tmp, buf);
 		free(tmp);

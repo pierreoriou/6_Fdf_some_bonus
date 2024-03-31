@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 10:48:52 by peoriou           #+#    #+#             */
-/*   Updated: 2024/03/29 15:26:14 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/31 15:31:22 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	add_image_to_front(t_map *map, t_image *new)
 {
-	t_image *tmp;
+	t_image	*tmp;
 
 	tmp = map->image;
 	new->next = tmp;

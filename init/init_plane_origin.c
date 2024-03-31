@@ -6,24 +6,11 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:28:17 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/29 16:25:50 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/31 14:11:27 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
-
-// static int	find_y_origin(t_map *map)
-// {
-// 	int	peak_y;
-// 	int	half_plane_height;
-
-// 	half_plane_height = (map->grid->len - 1) * map->plane->vect_x->y_in_plane;
-// 	ft_printf(1, "half_plane_height = %d, map->grid->len - 1 (%d) * map->plane->vect_x->scale (%d)\n", half_plane_height, map->grid->len - 1, map->plane->vect_x->scale);
-// 	peak_y = map->grid->max_z * map->plane->vect_z->y_in_plane;
-// 	peak_y -= half_plane_height;
-// 	ft_printf(1, "In init plane origin, peak_y = map->grid->max_z (%d) * map->plane->vect_z->scale(%d) = %d\n", map->grid->max_z,  map->plane->vect_z->scale, peak_y);
-// 	return (peak_y + half_plane_height + map->plane->margin_y);
-// }
 
 static int	find_y_origin(t_map *map)
 {

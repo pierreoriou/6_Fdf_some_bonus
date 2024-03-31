@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 11:54:23 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/29 17:10:54 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/31 15:11:52 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,24 @@
 
 void	free_close_exit(t_map *map, char *str, char *err_msg)
 {
-	free (str);
-	ft_printf(1, "%31?\n", "EXITING : str freed...");
-	free_map(map);
-	ft_printf(1, "%31?\n", "EXITING : map freed...");
-	ft_printf(2, "%31?", err_msg);
+	if (str)
+		free (str);
+	printf("EXITING : str freed...\n");
+	if (map)
+		free_map(map);
+	printf("EXITING : map freed...\n");
+	ft_putstr_fd(err_msg, 2);
 	mlx_destroy_display(map->connect);
+	free (map->connect);
+	exit (EXIT_FAILURE);
+}
+
+void	free_close_exit_before_init(t_map *map, char *err_msg)
+{
+	if (map)
+		free_map(map);
+	printf("EXITING : map freed...\n");
+	ft_putstr_fd(err_msg, 2);
 	free (map->connect);
 	exit (EXIT_FAILURE);
 }
@@ -28,13 +40,12 @@ void	cleanup(t_map *map)
 {
 	if (map->image)
 		free_images(map, &(map->image));
-	ft_printf(1, "%30?\n", "CLEANUP : ...map images freed...");
-	ft_printf(1, "in cleanup bef, map->connect = %p\n", map->connect);
+	printf("CLEANUP : ...map images freed...\n");
 	mlx_destroy_window(map->connect, map->connect->win_list);
-	ft_printf(1, "%32?\n", "CLEANUP : window destroyed...");
+	printf("CLEANUP : window destroyed...\n");
 	mlx_destroy_display(map->connect);
-	ft_printf(1, "%32?\n", "CLEANUP : display destroyed...");
+	printf("CLEANUP : display destroyed...\n");
 	free_map(map);
-	ft_printf(1, "%32?\n", "CLEANUP : map freed...");
+	printf("CLEANUP : map freed...\n");
 	free (map->connect);
 }
