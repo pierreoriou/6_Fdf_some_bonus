@@ -6,13 +6,13 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:26:39 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/29 11:14:31 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/31 20:34:12 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	draw_bresenham_up_up(t_img *img, t_pixel cur, t_pixel prev, int color)
+void	draw_bresenham_up_up(t_img *img, t_pixel cur, t_pixel prev, int c)
 {
 	int	dx;
 	int	dy;
@@ -23,7 +23,7 @@ void	draw_bresenham_up_up(t_img *img, t_pixel cur, t_pixel prev, int color)
 	p = (2 * dx) - dy;
 	while (prev.y > cur.y)
 	{
-		my_pixel_put(img, prev.x, prev.y, color);
+		my_pixel_put(img, prev.x, prev.y, c);
 		prev.y--;
 		if (p < 0)
 			p += 2 * dx;
@@ -35,7 +35,7 @@ void	draw_bresenham_up_up(t_img *img, t_pixel cur, t_pixel prev, int color)
 	}
 }
 
-void	draw_bresenham_up_left(t_img *img, t_pixel cur, t_pixel prev, int color)
+void	draw_bresenham_up_left(t_img *img, t_pixel cur, t_pixel prev, int c)
 {
 	int	dx;
 	int	dy;
@@ -46,7 +46,7 @@ void	draw_bresenham_up_left(t_img *img, t_pixel cur, t_pixel prev, int color)
 	p = (2 * dy) - dx;
 	while (prev.x < cur.x)
 	{
-		my_pixel_put(img, prev.x, prev.y, color);
+		my_pixel_put(img, prev.x, prev.y, c);
 		prev.x++;
 		if (p < 0)
 			p += 2 * dy;

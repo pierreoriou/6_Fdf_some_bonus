@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 15:36:01 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/31 15:36:03 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/31 19:53:03 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ static void	check_line_content(char **tab, char *str, t_map *map)
 		}
 		val[0] = i;
 		val[2] = ft_atoi(tab[i]);
-		init_coord(map, &(map->coord), val, tab[i]);
+		if (!init_coord(map, &(map->coord), val, tab[i]))
+			abort_parsing(map, tab, str);
 		i++;
 	}
 	y++;
@@ -102,6 +103,5 @@ void	parse_grid(char *filename, t_map *map)
 	free (new_name);
 	map->grid = init_grid(map, filename, fd);
 	check_file_content(map);
-	printf("File content checked...\n");
 	close (fd);
 }

@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 10:52:00 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/31 14:11:19 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/31 19:54:50 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,8 @@ static void	coord_addback(t_coord **coord, t_coord *new)
 	(*coord)->head = new;
 }
 
-t_coord	*init_coord(t_map *map, t_coord **coord, int *val, char *elem)
+static void	init_coord_values(t_coord *new, int *val, char *elem)
 {
-	t_coord	*new;
-
-	new = (t_coord *)malloc(sizeof(t_coord));
-	if (!new)
-		free_close_exit(map, NULL, "Problem allocating memory.\n");
 	new->x = val[0];
 	new->y = val[1];
 	new->z = val[2];
@@ -57,8 +52,28 @@ t_coord	*init_coord(t_map *map, t_coord **coord, int *val, char *elem)
 	new->prev_y = NULL;
 	new->prev = NULL;
 	new->next = NULL;
+}
+
+int	init_coord(t_map *map, t_coord **coord, int *val, char *elem)
+{
+	t_coord		*new;
+	static int	n_px = 0;
+
+	new = (t_coord *)malloc(sizeof(t_coord));
+	if (!new)
+	{
+		free_n_coord(coord, n_px);
+		return (0);
+	}
+	init_coord_values(new, val, elem);
 	coord_addback(coord, new);
 	upd_grid(map, val);
-	new->pixel = init_pixel(map);
-	return (new);
+	new->pixel = init_pixel();
+	if (!new->pixel)
+	{
+		free_n_coord(coord, n_px);
+		return (0);
+	}
+	n_px++;
+	return (1);
 }

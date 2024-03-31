@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 15:38:23 by poriou            #+#    #+#             */
-/*   Updated: 2024/03/31 15:37:22 by poriou           ###   ########.fr       */
+/*   Updated: 2024/03/31 18:26:23 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void	rotate_up(t_map *map)
 	t_img	*im;
 
 	im = map->image->img;
-	map->plane->rotate_y += 10;
+	if (map->plane->rotate_y < 90)
+		map->plane->rotate_y += 5;
+	else
+		return ;
 	upd_vectors(map);
 	create_image(map);
 	draw_in_image(map, map->coord, im);
@@ -29,7 +32,10 @@ void	rotate_down(t_map *map)
 	t_img	*im;
 
 	im = map->image->img;
-	map->plane->rotate_y -= 10;
+	if (map->plane->rotate_y > 0)
+		map->plane->rotate_y -= 5;
+	else
+		return ;
 	upd_vectors(map);
 	create_image(map);
 	draw_in_image(map, map->coord, im);
