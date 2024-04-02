@@ -77,7 +77,7 @@ ${MINILIBX_PATH}/${MINILIBX_NAME}:
 	make -C ${MINILIBX_PATH}
 
 clean:
-	rm -r ${OBJS_DIR}
+	rm -rf ${OBJS_DIR}
 	make clean -C ${MINILIBX_PATH}
 	make clean -C ${LIBFT_PATH}
 
